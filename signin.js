@@ -9,13 +9,13 @@ const SignInPage = () => {
 
   return (
     <div
-      className="h-screen w-screen flex flex-row"
+      className="h-screen w-screen flex flex-col-reverse md:flex-row"
       style={{
         backgroundImage: `url('signbg.jpg')`,
       }}
     >
-      <div className="max-w-[400px] min-w-[400px] h-full flex flex-col justify-center items-end p-12 text-slate-100 bg-rose-900/30">
-        <div className="text-2xl text-right font-bold">
+      <div className="w-full md:max-w-[400px] md:min-w-[400px] h-full flex flex-col justify-center items-center md:items-end p-12 text-slate-100 bg-rose-900/30">
+        <div className="text-2xl text-center md:text-right font-bold">
           LEETCODE CLONE FOR DAILY PRACTISE
         </div>
         <div className="flex flex-col justify-center space-y-4 mt-12">
@@ -30,7 +30,7 @@ const SignInPage = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-center items-center">
+      <div className="w-full flex justify-center items-center h-[300px] md:h-full">
         <div className="flex flex-col items-center justify-evenly py-4 min-w-[300px] max-w-[300px] min-h-[35%] max-h-[50%] rounded-lg bg-slate-100/30 backdrop-blur-xl">
           <div className="text-slate-100 text-xl font-semibold">Leetcode Clone</div>
           {/* <div className="py-3">Sign up from Password Less</div> */}
