@@ -8,6 +8,7 @@ import { Topbar } from "./components/Topbar";
 import { Card } from "./components/Card";
 import { Leaderboard } from "./components/LeaderBoard";
 import { ProblemList } from "./components/ProblemList";
+import { ProblemDetails } from "./components/ProblemDetails";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBp36r4pKHtr5vTXJF1as-HqZCvHnxFe9A",
@@ -61,6 +62,25 @@ function StoreApp() {
     { id: 10, problemName: "Breadth-First Search", tags: ["Graph"] },
   ];
 
+  const problemDetails =  {
+    id: 1,
+    problemName: "Two Sum",
+    problemDescriptionMarkDown: `
+# Two Sum
+
+## Description
+Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.
+
+You may assume that each input would have **_exactly_** one solution, and you may not use the same element twice.
+
+## Example
+Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[**0**] + nums[**1**] = 2 + 7 = 9,
+return [**0, 1**].
+`
+  }
+
   useEffect(() => {
     onAuthStateChanged(auth, function (user) {
       if (user && user.email) {
@@ -85,7 +105,15 @@ function StoreApp() {
   }
   
   if (!user.user) {
-    return <div><Signin /></div>
+    return (
+    <div className="place-items-center grid">
+    <div className="max-w-screen-lg w-full">
+      <Topbar />
+      <ProblemDetails problem={problemDetails}  />
+    </div>
+  </div>
+    )
+    // return <div><Signin /></div>
   }
   
   return (
